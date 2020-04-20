@@ -1,0 +1,317 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[a4paper]{report}
+
+\usepackage[serbian]{babel}
+\usepackage{amssymb}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage[unicode]{hyperref}
+\hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
+
+\usepackage{type1ec}
+\usepackage{cmap}
+\defaulthyphenchar=127
+
+\newcommand{\odgovor}[1]{\textcolor{blue}{#1}}
+\newcommand{\todo}[1]{\textcolor{red}{TODO #1}}
+
+\begin{document}
+
+\title{Paralelizacija metaheuristika\\ \small{Jovan Mirkov, Lazar Vasović, Dušica Golubović, Teodora Heldrih}}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{Recenzent \odgovor{--- ocena 5:} }
+
+
+\section{O čemu rad govori?}
+% Напишете један кратак пасус у којим ћете својим речима препричати суштину рада (и тиме показати да сте рад пажљиво прочитали и разумели). Обим од 200 до 400 карактера.
+U radu su na početku opisani optimizacioni problemi i njihovo rešavanje pomoću metaheuristika i kako je moguće ubrzati metaheuristike pomoću paralelizacije. Nakon toga, posebna pažnja je posvećena podeli paralelnih metaheuristika u okviru koje su opisani paralelizacija algoritama evolucije i paralelni modeli genetskih algoritama.
+\section{Krupne primedbe i sugestije}
+% Напишете своја запажања и конструктивне идеје шта у раду недостаје и шта би требало да се промени-измени-дода-одузме да би рад био квалитетнији.
+Moje mišljenje je da bi u radu trebalo da se posveti malo više pažnje primenama metaheuristike i paralelizacije u oblastima kao što su ekonomija, telekomunikacija, itd...
+\odgovor{Dodata su dva primera primene paralalelnih metaheuristika (jedne P i jedne S) u oblasti telekomunikacija, strane 9 i 11, ali i odgovarajuće reference za nove tvrdnje. Imalo je još mnogo potencijalnih primera, slažemo se, ali smo se zadržali na dva zbog ograničenog prostora i zahteva.}
+\section{Sitne primedbe}
+% Напишете своја запажања на тему штампарских-стилских-језичких грешки
+Slovne i jezičke greške : \\
+-strana 4, reč: hijejarhijski,\\
+ -strana 5, reč: kriterujum,\\
+ -strana 7, reč: gosodar-sluga,\\
+ -strana 8, fali tačka pre dela o odabiru,zameni jedinki, \\
+ -strana 9, reč: mozemo,\\
+ -strana 9, reč: zahteni,\\
+ -strana 9, reč: pralelizacije, \\
+ -strana 10, reč: sto, \\
+ -strana 10, reč: izracunavanje, \\
+-strana 10, "Enrique Alba", nije prevedeno ime,\\
+-strana 10, "Enrique Albi", nije prevedeno ime.\\
+\odgovor{Sve slovne i jezičke greške su ispravljene.}\\
+Zamerke: \\
+-Slika na strani 10 je na engleskom jeziku. 
+\odgovor{Slika je sada na srpskom.}
+\section{Provera sadržajnosti i forme seminarskog rada}
+% Oдговорите на следећа питања --- уз сваки одговор дати и образложење
+
+\begin{enumerate}
+\item Da li rad dobro odgovara na zadatu temu?\\
+Smatram da rad dobro odgovara na temu, na razumljiv način opisana je upotreba metaheuristika kao i zbog čega je bolje koristiti paralelizaciju, kojoj je i posvećeno najviše pažnje.
+\item Da li je nešto važno propušteno?\\
+Nije propušteno ništa važno, opisano je sve što je i trebalo.
+\item Da li ima suštinskih grešaka i propusta?\\
+Nisam uočila veće greške, samo sitne slovne i jezičke greške.
+\item Da li je naslov rada dobro izabran?\\
+Naslov rada je dobro izabran.
+\item Da li sažetak sadrži prave podatke o radu?\\
+Sažetak sadrži prave podatke o radu, u radu jesu opisani optimizacioni problemi i njihova rešenja, kao i unapređenje metaheuristika paralelizacijom.
+\item Da li je rad lak-težak za čitanje?\\
+Rad je lak za čitanje i veoma razumljiv.
+\item Da li je za razumevanje teksta potrebno predznanje i u kolikoj meri?\\
+Smatram da je potrebno neko minimalno predznanje da bi se lepo razumeo tekst.
+\item Da li je u radu navedena odgovarajuća literatura?\\
+U radu je navedena odgovarajuća literatura.
+\item Da li su u radu reference korektno navedene?\\
+Reference su korektno navedene.
+\item Da li je struktura rada adekvatna?\\
+Struktura rada je adekvatna.
+\item Da li rad sadrži sve elemente propisane uslovom seminarskog rada (slike, tabele, broj strana...)?\\
+Rad sadrži sve elemente, ima 11 strana, sadrži dve slike i jednu tabelu.
+\item Da li su slike i tabele funkcionalne i adekvatne?\\
+Slike i tabele su funkcionalne i adekvantne.
+\end{enumerate}
+
+\section{Ocenite sebe}
+% Napišite koliko ste upućeni u oblast koju recenzirate: 
+% a) ekspert u datoj oblasti
+% b) veoma upućeni u oblast
+% c) srednje upućeni
+% d) malo upućeni 
+% e) skoro neupućeni
+% f) potpuno neupućeni
+% Obrazložite svoju odluku
+Srednje upućena. \odgovor{Hvala na korisnim sugestijama! Dajemo maksimalnu ocenu pošto smatramo da su primeri, koji su inače zauzeli celu jednu stranu (sada rad ima 12 umesto 11), povećali razumljivost i naučnoistraživačku vrednost rada.}
+
+\chapter{Recenzent \odgovor{--- ocena 5:} }
+
+
+\section{O čemu rad govori?}
+% Напишете један кратак пасус у којим ћете својим речима препричати суштину рада (и тиме показати да сте рад пажљиво прочитали и разумели). Обим од 200 до 400 карактера.
+Ovaj rad pokriva paralelizaciju metaheuristika i njihovu primenu. Pored uvodnog dela koji detaljno predstavlja problem, opisuje izazove, daje objašnjenje paralelizacije i motivaciju za njeno uvođenje opisana je i podela na metaheuristike zasnovane na populaciji  i  metaheuristike zasnovane na unapređenju jednog člana. 
+\section{Krupne primedbe i sugestije}
+% Напишете своја запажања и конструктивне идеје шта у раду недостаје и шта би требало да се промени-измени-дода-одузме да би рад био квалитетнији.
+
+Ovaj rad omogućava čitaocu da ga čita sa razumevanjem sa malo predznanja sto je delom zbog dugačkog uvoda, ovo je dobra osobina ali ipak smatram da čitalac koji je zainteresovan za ovakav rad već ima takvo predznanje i da nije potrebno ulaziti u dubinu sto se tiče stvari koje nisu direktno povezane sa paralelizacijom. Smatram da nema potrebe opisivati opšti genetski i evolutivni algoritam.
+\odgovor{Smatramo da su uvod, kao i opisi genetskog i evolutivnog algoritma, potrebni kako bi rad bio samodovoljan, što je jedan od zahteva. Sporni delovi nisu preopširno napisani, a značajno pomažu čitaocima koji nisu upućeni u tematiku u potpunom razumevanju sadržaja rada. Primera radi, bez toga bi teško čak i diplomac sa našeg fakulteta pohvatao sve u slučaju da nije odslušao kurs Računarska inteligencija (u pitanju je izborni kurs, tako da u ovu grupu spadaju i neki autori seminarskog) ili se privatno bavio metaheuristikama.}
+
+Na  mestu gde se pominje da paralelizacija daje znatno bolje rezultate, bilo bi korisno da se doda konkretno koliko su bolji rezultati u odnosu na sekvencijalno izvršavanje, ako su ti podaci dostupni. \odgovor{Konkretni podaci (brojčani), nažalost, nisu dostupni. Primedba je, međutim, na mestu, jer to je stvarno problematična izjava. Zato smo izbacili spornu reč „znatno“. Što se tiče novog tvrđenja -- uopšteno da može biti bolje rešenje -- ono je u skladu sa ostatkom teksta, koji govori o razlikama između sekvencijalnih i paralelnih verzija metaheuristika.}
+
+Na mestu gde se opisuje da je  metaheuristika zasnovana na unapređenju jednog člana pominje se da se uglavnom uzima bolje rešenje u sledećem koraku ali ne daje se objašnjenje za mogući slučaj kada se ne uzima bolje rešenje. \odgovor{Dodat je jedan uopšten primer vezan za konkretnu metodu simulirano kaljenje. Nije se ulazilo u detalje te metode jer bismo se dodatnim tekstom udaljili od teme rada. Činjenica da se ne uzima uvek bolje rešenje sada je dodatno istaknuta i u uvodnom tekstu, a tako je bilo i dosad u izloženom pseudokodu.}
+
+
+\section{Sitne primedbe}
+% Напишете своја запажања на тему штампарских-стилских-језичких грешки
+Sledeće konstrukcije izlaze iz margina: imena autora, tabela 1, algoritmi, opisi slika. \odgovor{Sledeće su ispravke: preimenovani su podnaslovi 3.1 i 3.2 (recenzent nije primetio da i oni ispadaju, ali mi sad jesmo, kada smo uopšte i obratili pažnju na margine, pošto nam nekako dosad nisu bile važne), imena i kontakt podaci autora su smešteni u tabelu $2\times2$, u tabeli 1 su spojene kolone za nivo algoritma i granularnost, opisi slika su stavljeni u dva reda (napomena: za sliku 1 se zbog teksta ispod nje i dalje čini kao da je van margina, ali nije tako, već tako izgleda pošto je tekst uvučen, kao deo nabrajanja), algoritmi su centrirani nakon ljute bitke sa pravljenjem odgovarajućeg LaTeX okruženja (komanda \textbackslash newenvironment i njoj podređene).}
+
+Radi bolje čitljivosti izraze koji ne daju dodatno značenje a mogu se skratiti treba skratiti – npr. izraz „kako bi rešenje bilo prihvatljivo, odnosno dopustivo“, može da se kaže da je rešenje samo prihvatljivo ili samo dopustivo. \odgovor{Zapravo ne, taj izraz daje dodatno značenje. Izgleda je trebalo da ipak uvod bude detaljniji, nikako kraći, kako bi se bolje uvela terminologija. U skladu sa tim, dodato je objašnjenje na ukazanom spornom mestu. Nismo sigurni na koja se još mesta mislilo, pošto se iz primedbe čini kao da ih ima više, ali nadamo se da je i na drugim mestima nešto što na prvi pogled liči na ponavljanje ipak opravdano. Osim toga, iako se ispostavilo da je ovde drugi slučaj, napomenuli bismo da je nekad dobro uvesti sinonime, kako bi se znalo da se misli na istu stvar.}
+
+Kod pisanja ovakve vrste radova obično se zadebljani font(bold)  retko koristi i sve reči koje žele da se istaknu mogu se istaknuti korišćenjem zakrivljenih slova (italic). \odgovor{Istina je da se u naučnim radovima retko koriste zamašćena slova, ali to zavisi od politike izdavača i o tome bi se, razume se, vodilo računa da je npr. rad poslat na izdavanje (u) nekom časopisu. Kako to nije slučaj, vodili smo se politikom postojanja dva nivoa naglašenosti -- višeg boldom i nižeg italikom. Ta razlikovna uloga bila bi narušena ukoliko bismo sve zamenili italikom.}
+
+U rečenici „Verzija sa odlučivošću – postoji li put (permutacija) dužine manje od zadatog L – poznata je u teoriji složenosti kao …“, možda bi bilo bolje da se crtice zamene sa zarezima. \odgovor{Pošto upotreba crta (ne crtica) umesto zareza ne spada u pravopisnu grešku nego je više stvar ukusa, nema promene. Osim toga, crte za pojašnjenja stilski se uklapaju u ostatak rada, gde se takođe koriste na mestima gde je umesto njih moguće staviti zapete ili dvotačku.}
+
+
+\section{Provera sadržajnosti i forme seminarskog rada}
+% Oдговорите на следећа питања --- уз сваки одговор дати и образложење
+
+\begin{enumerate}
+\item Da li rad dobro odgovara na zadatu temu?\\
+    Da, paralelizacija metaheuristika je dobro pokrivena od uvoda, opisa, podele do zaključka.
+\item Da li je nešto važno propušteno?\\
+    Nisam ekspert za ovu oblast ali rekao bih da nije.
+\item Da li ima suštinskih grešaka i propusta?\\
+Nijedna od grešaka nije suštinska.
+\item Da li je naslov rada dobro izabran?\\
+Da, naslov precizno oslikava temu.
+\item Da li sažetak sadrži prave podatke o radu?\\
+Da, sažetak daje dobar uvod u ostatak rada. Opisuje se problem, rešenje i ono sto će se obrađivati u nastavku rada.
+\item Da li je rad lak-težak za čitanje?\\
+Rad je veoma lak za čitanje i ne koriste se neobjašnjeni pojmovi.
+\item Da li je za razumevanje teksta potrebno predznanje i u kolikoj meri?\\
+Potrebno je osnovno znanje iz oblasti računarske inteligencije.
+\item Da li je u radu navedena odgovarajuća literatura?\\
+Da.
+\item Da li su u radu reference korektno navedene?\\
+Da, svi korišćeni delovi su uredno navedeni.
+\item Da li je struktura rada adekvatna?\\
+Neki delovi izlaze iz margina. \odgovor{Popravljeno je i prodiskutovano iznad.}
+\item Da li rad sadrži sve elemente propisane uslovom seminarskog rada (slike, tabele, broj strana...)?\\
+Da.
+\item Da li su slike i tabele funkcionalne i adekvatne?\\
+Slike i tabele su adekvatne i funkcionalne.
+\end{enumerate}
+
+\section{Ocenite sebe}
+% Napišite koliko ste upućeni u oblast koju recenzirate: 
+% a) ekspert u datoj oblasti
+% b) veoma upućeni u oblast
+% c) srednje upućeni
+d) malo upućeni.
+% e) skoro neupućeni
+% f) potpuno neupućeni
+% Obrazložite svoju odluku
+
+U ovu oblast sam upućen samo kroz kurseve matematičkog fakulteta. \odgovor{Hvala na korisnim sugestijama! Iako smo prihvatili tek polovinu predloga, pa se možda čini da nam recenzija nije bila preterano korisna, ipak nije tako. Dajemo maksimalnu ocenu, pošto nam je ukazano na problem margina, za koje nam stvarno prilikom pisanja rada ni na kraj pameti nije bilo da su važne, ali smo to shvatili primetivši koliko je rad prijemčiviji za oko kad ništa ne ispada. Osim toga, popravka ovog problema nas je izveštila u radu sa LaTeX-om, što je takođe pohvalno i čini recenziju korisnom na jednom višem nivou.}
+
+
+\chapter{Recenzent \odgovor{--- ocena 5:} }
+
+
+\section{O čemu rad govori?}
+% Напишете један кратак пасус у којим ћете својим речима препричати суштину рада (и тиме показати да сте рад пажљиво прочитали и разумели). Обим од 200 до 400 карактера.
+Rad govori o tome kako se sve paralelizuju metaheuristike koje se koriste u okviru računarske inteligencije. Na samom početku se uvodi pojam optimizacionih problema i (meta)heuristika. Zatim se daje motivacija za uvođenjem paralelizma uz kratak osvrt na sve arhitekture na kojima je moguć neki vid paralelizacije. Nakon uvodnih delova se izlažu i objašnjavaju mogući nivoi paralelizacije (granularnost). U ostatku rada se izučavaju modeli paralelizacije u populacionim (\textbf{P} -) metaheuristikama i u metaheuristikama zasnovanim na poboljšavanju jednog rešenja (\textbf{S} - metaheuristikama). U ovom radu je pokazano da, sem nama poznate efikasnosti, paralelizacijom možemo dobiti čak i kvalitetnija rešenja.
+
+\section{Krupne primedbe i sugestije}
+% Напишете своја запажања и конструктивне идеје шта у раду недостаје и шта би требало да се промени-измени-дода-одузме да би рад био квалитетнији.
+
+\begin{itemize}
+    \item  Deo sa struktuiranom populacijom -- Iako je zaista detaljno obrađen, nekako je i dalje taj deo čitaocu apstraktan. Predlog bi bio da se doda konkretan primer (ili dva primera, pošto imamo dva najzastupljenija tipa struktuirane populacije). Time će čitalac steći osećaj i bolje razumeti zašto se, na primer, većina operacija varijacija mogu paralelizovati. Da se samo to uradi je dovoljno. \odgovor{Nažalost, nismo našli primere adekvatne za brzinski i kratak prikaz potencijala struktu(r)irane populacije (za detalje videti i odgovor na poslednju zamerku u ovom nabranjaju). Ipak, dodato je uopšteno objašnjenje tj. eksplicitno je navedeno ono što je dosad bilo implicitno -- kako i zašto se mogu paralelizovati funkcija prilagođenosti i ukrštanje kod ostrvskih algoritama -- što donekle rešava problem.} \\
+     Takođe, bilo bi dobro da se, na primer, u fusnotu doda vrlo kratko objašnjenje o SIMD/MIMD računarima, jer možda neki drugi čitalac nije upoznat sa tim pojmovima. \odgovor{Objašnjenja za ove dve arhitekture su dodate u fusnotu, kao što je i predloženo, na strani 7.}
+     
+     \item Razmislite da drugačije nazovete potpoglavlja poglavlja o paralelnim metaheuristikama zasnovane na populaciji, ili da date drugačije objašnjenje o njima u uvodnom delu. Tu čitalac stiče utisak da se radi o paralelizaciji drugačijih algoritama, iako se u drugom potpoglavlju samo daje detaljnije objašnjenje o modelima optimizacije. \odgovor{Izbačeno je sporno poglavlje o paralelizaciji genetskog algoritma tj. spojeno sa opštim o paralelizaciji evolutivnih izračunavanja. U skladu sa tim je izmenjen i „Uvod“.}
+     
+     \item
+     Kod izlaganja svakog novog modela razmotrite potencijalno dodavanje nekog konkretnog primera koji bi predstavljao ilustraciju. Takođe, i da razmislite, ako možete, nađete neki posebno značajan realan primer (neki sistem koji koristi algoritme optimizacije pri svom radu, a oni dobro ili uopšte funkcionišu upravo zahvaljujući paralelizaciji). To bi bilo nešto ili jako popularno (u nauci ili nekoj drugoj sferi), ili na primer, neki softverski proizvod koji je u širokoj upotrebi. \odgovor{Dodata je primena paralelizacije metaheuristika u oblasti telekomunikacija, strane 9 (primer P-metaheuristike) i 11 (primer S-metaheuristike). Broj modela je veliki, tako da nismo svaki toliko detaljno istražili da bismo mogli da iznesemo dobre primere. Inače je odlična ideja, ali bi toliko istraživanje najverovatnije premašilo zamisao i ciljeve seminarskog rada i prešlo u domen naučnog rada. U najboljem slučaju, premašilo bi samo broj strana -- trenutno ih je punih 12, maksimum, a počeli smo od 11 pre uvažavanja recenzija -- što je dovoljno loše.}
+\end{itemize}
+
+		
+        	
+        
+        
+\section{Sitne primedbe}
+% Напишете своја запажања на тему штампарских-стилских-језичких грешки
+
+\begin{itemize}
+    \item {Poglavlje o paralelnim metaheuristikama zasnovanim na unapređenju
+jednog rešenja, deo sa navedenim modelima paralelizacije u tezama, teza o modelu paralelizma kretanja -- Slučajna greška sa pogrešnom reči -- mislili ste da bi sekvencijalno izvršavanje dalo iste rezultate samo u \textit{dužem} vremenskom periodu.} 
+    \item{ Početak poglavlja o paralelnim metaheuristikama zasnovanim na populaciji -- Reč \textit{procenima} u rečenici "Većina P-metaheuristika su algoritmi koji se zasnivaju na prirodnim
+\textit{procenima}" .}
+    \item{ Početak poglavlja o paralelnim metaheuristikama zasnovanim na populaciji -- Greška u pseudokodu prvog algoritma: Trebalo bi da u koraku selekcije pravite novu generaciju $P_{t+1}$, a ne $P'_{t+1}$ koji će tek biti generisan u narednoj iteraciji.}
+    \item{ Poglavlje o paralelnim metaheuristikama zasnovanim na populaciji, potpoglavlje sa modelima paralelizacije genetskih algoritama, distribuirani model -- Rečenica "Nad \textit{svakoj subpopulaciji}, nezavisno se izvršava genetski algoritam.", jezička greška.}
+    \item{ Početak poglavlja o paralelnim metaheuristikama zasnovanim na unapređenju jednog rešenja, nakon prikaza pseudokoda trećeg algoritma -- Slovna i pravopisna greška u rečenici "Jačine procesora u to vreme su bile slabe tako da
+su \\ \textit{gore-navedeni} algoritmi u serijskom izvršavanju bili vremenski \textit{zahteni}
+čak i za manje probleme." .}
+    \item{Poglavlje o paralelnim metaheuristikama zasnovanim na unapređenju
+jednog rešenja, pred navođenje modela paralelizacije -- Jezička greška u rečenici "
+Modeli paralelizacije \textit{koje} su \textit{bile} najčešće \textit{predlagane} su:".}
+    \item{Poglavlje o paralelnim metaheuristikama zasnovanim na unapređenju
+jednog rešenja, navođenje modela paralelizacije, teza o modelu ubrzanog kretanja -- Slovna greška u reči \textit{izracunavanje}.}
+
+\odgovor{Sve jezičke, pravopisne i greške u kucanju su ispravljene.}
+\end{itemize}
+
+\section{Provera sadržajnosti i forme seminarskog rada}
+% Oдговорите на следећа питања --- уз сваки одговор дати и образложење
+
+\begin{enumerate}
+\item Da li rad dobro odgovara na zadatu temu?\\ 
+  Rad maksimalno dobro odgovara na zadatu temu. Problematika je sagledana iz svih mogućih aspekata, što je posebno dobro kod ovog rada.
+\item Da li je nešto važno propušteno?\\ 
+  Smatram da nije ništa važno propušteno u seminarskom radu.
+\item Da li ima suštinskih grešaka i propusta?\\ 
+  Smatram da ne postoje suštinske greške i propusti.
+\item Da li je naslov rada dobro izabran?\\ 
+  Naslov rada je dobro izabran, u skladu sa obrađenom temom.
+\item Da li sažetak sadrži prave podatke o radu?\\ 
+  Sažetak je vrlo lep i on treba da bude takav da privuče čitaoca da nastavi sa čitanjem rada. Nagoveštava o kojoj temi se u radu zaista govori. Nije nabrojano precizno kakve se sve vrste metaheuristika paralelizuje, ali mislim da to u sažetku nije ni neophodno. \odgovor{I mi smatramo da to nije neophodno -- ipak je to sažetak, sažeti/apstraktni prikaz -- ali je došlo do određenog proširenja i izmena po sugestiji narednog recenzenta.}
+\item Da li je rad lak-težak za čitanje?\\ 
+  Stil rada je takav da je on jednostavan za čitanje svakome ko ima dovoljno predznanja iz računarstva -- nije konfuzan.
+\item Da li je za razumevanje teksta potrebno predznanje i u kolikoj meri?\\
+  Upravo zbog datog kratkog uvoda u probleme teorije optimizacije ovaj rad je dovoljno primeren tako da može da ga čita svako ko ima osnovna znanja o računarstvu, programiranju i algoritmici.
+\item Da li je u radu navedena odgovarajuća literatura?\\
+  U radu jeste navedena odgovarajuća literatura.
+\item Da li su u radu reference korektno navedene?\\
+  Odgovarajuća literatura je korektno citirana. Takođe i reference na slike/tabele/određena poglavlja su ispravno navedene.
+\item Da li je struktura rada adekvatna?\\
+  Struktura rada je adekvatna. Ima sve neophodne osnovne elemente jednog seminarskog rada -- sažetak, uvod, razradu i zaključak. Takođe i sama struktura razrade je adekvatna. Poglavlja u njoj su u ispravnom uzročno - posledičnom poretku.
+\item Da li rad sadrži sve elemente propisane uslovom seminarskog 0rada (slike, tabele, broj strana...)?\\ Da. Seminarski rad zadovoljava sve propisane uslove.
+\item Da li su slike i tabele funkcionalne i adekvatne? \\ Slike i tabele su u potpunosti funkcionalne i adekvatne.
+\end{enumerate}
+
+\section{Ocenite sebe}
+% Napišite koliko ste upućeni u oblast koju recenzirate: 
+% a) ekspert u datoj oblasti
+% b) veoma upućeni u oblast
+% c) srednje upućeni
+% d) malo upućeni 
+% e) skoro neupućeni
+% f) potpuno neupućeni
+% Obrazložite svoju odluku
+
+\textbf{c)} - Slušala sam kurs Računarska inteligencija na fakultetu koji se najvećim delom bavi baš optimizacijom i sama sam imala priliku da pišem rad u ovoj oblasti. Samim tim, dobro poznajem neke od ključnih metaheuristika i osnovne osobine koje karakterišu metaheuristike u oblasti problema optimizacije. Međutim, sebi ne bih dala veću ocenu, jer se nisam dovoljno dugo i intenzivno bavila ovom temom. Samim tim zato što sam i dalje student na osnovnim akademskim studijama daleko sam od stručnjaka u ovoj oblasti. \odgovor{Hvala na korisnim sugestijama! Dajemo maksimalnu ocenu pošto smatramo da su primeri, kao i kod jedne od prethodnih recenzija, doprineli razumljivosti i kvalitetu rada, iako, nažalost, nismo uspeli u priču da uklopimo više od dva tj. nismo naveli po primer za svaki model. Zahvaljujemo se i na pažljivo uočenim greškama u kucanju.}
+
+\chapter{Recenzent \odgovor{--- ocena 5:} }
+
+
+\section{O čemu rad govori?}
+% Напишете један кратак пасус у којим ћете својим речима препричати суштину рада (и тиме показати да сте рад пажљиво прочитали и разумели). Обим од 200 до 400 карактера.
+Analizira se nekoliko pristupa kojima se ubrzavaju metaheuristike korišćenjem paralelnog izvršavanja umesto sekvencijalnog. Prikazana je razlika između strukture i ciljeva kod različitih paralelnih modela – onih na nivou algoritma, iteracije i rešenja. Objašnjene su podele paralelnih metaheuristika na P i S-metaheuristike i detaljno su opisani modeli algoritama zasnovanih na njima.
+
+\section{Krupne primedbe i sugestije}
+% Напишете своја запажања и конструктивне идеје шта у раду недостаје и шта би требало да се промени-измени-дода-одузме да би рад био квалитетнији.
+Iako nije glavna tema rada, trebalo bi malo detaljnije objasniti realizacije paralelnih sistema na nabrojanim paralelnim arhitekturama, makar kao dodatak. \odgovor{Detalji arhitektura paralelnih sistema, kako je navedeno u samom radu (strana 4), nisu nikako tema rada (ni sporedna), tako da su preskočeni. Naš rad se bavi samo logikom odnosno algoritmima. Pritom ne bi bilo moguće ukratko objasniti arhitekture u glavnom tekstu, a da to bude urađeno na pravi način. Pisanje u dodatku tek ne bi bilo primereno, pošto on služi za kodove i slično, ne dodatne značajne informacije.} Jedini ozbiljniji nedostatak rada jeste to što slika 2 nije prevedena sa engleskog na srpski jezik. \odgovor{Slika je sada na srpskom.}
+
+\section{Sitne primedbe}
+% Напишете своја запажања на тему штампарских-стилских-језичких грешки
+Na strani 4 umesto {\em hijejarhijski} treba da piše {\em hijerarhijski}. Na strani 5 napisano je {\em kriterujum} umesto {\em kriterijum}. U poslednjem pasusu na 5. strani umesto {\em prirodnim procenima} treba da stoji {\em prirodnim procesima}. Na strani 7 treba zameniti {\em gosodar-sluga} sa {\em gospodar-sluga}. Kod distribuiranog modela na strani 8 nedostaje tačka na kraju celine {\em stopa migracije}. Na strani 9 treba {\em zahteni} zameniti sa {\em zahtevni}. U poslednjoj rečenici na istoj strani treba da piše {\em paralelizacije} umesto {\em pralelizacije}. Na 10. strani bi trebalo da stoji {\em to što se} umesto {\em to sto se}, {\em koje će deliti} umesto {\em koje ce deliti} i {\em izračunavanje} umesto {\em izracunavanje}.
+Takođe, u modelima paralelizma na kraju strane 10 (slično kao i na početku strane 9) treba promeniti {\em Enrique Albi} u {\em Enrikeu Albi}, kako bi bilo u skladu sa našim jezikom. Jednačenjem suglasnika po zvučnosti, na 6. strani treba da bude {\em potklasa}, a ne {\em podklasa}. \odgovor{Ispravljene su greške u kucanju.} Čisto radi estetike, mogla bi poslednja rečenica iz dela 3.1 da se pomeri pre algoritma populacije. \odgovor{Pomeren je pasus ispred algoritma populacije.}
+
+\section{Provera sadržajnosti i forme seminarskog rada}
+% Oдговорите на следећа питања --- уз сваки одговор дати и образложење
+
+\begin{enumerate}
+\item Da li rad dobro odgovara na zadatu temu?\\
+Da. Rad daje dobar odgovor na to zašto se metaheuristike paralelizuju i na koji način.
+\item Da li je nešto važno propušteno?\\
+Ne. Objašnjenja su jasna i dobro izabrana.
+\item Da li ima suštinskih grešaka i propusta?\\
+Ne.
+\item Da li je naslov rada dobro izabran?\\
+Jeste. Možda bi još adekvatniji naziv bio onaj koji je bio u startu - Paralelizacija metaheurističkih algoritama. \odgovor{Kod ovoga smo se vodili idejom da naslov bude što prilagođeniji alatima za pretragu. U tom kontekstu, smatramo da bi većina ljudi pretraživala skraćeno metaheuristike, a ne prošireno metaheurističke algoritme. Stoga ipak nema izmena.}
+\item Da li sažetak sadrži prave podatke o radu?\\
+Da. Sažetak sadrži prave podatke o radu, ali bi mogao da bude malo primamljiviji i da više uvuče čitaoca. \odgovor{Nešto je pokušano stavljanjem akcenta na ilustrativne primere, motivaciju i savremene tokove. Nadamo se da sad prelazi prag zanimljivosti, iako je mahom tehnička tema u pitanju.}
+\item Da li je rad lak-težak za čitanje?\\
+Rad je precizno i koncizno napisan i lak za čitanje. Stil pisanja je konzistentan i nadovezuju se celine jedna na drugu.
+\item Da li je za razumevanje teksta potrebno predznanje i u kolikoj meri?\\
+Potrebno je predznanje u nekoj meri, mada su ključni principi i pojmovi dobro objašnjeni.
+\item Da li je u radu navedena odgovarajuća literatura?\\
+Da.
+\item Da li su u radu reference korektno navedene?\\
+Da.
+\item Da li je struktura rada adekvatna?\\
+Da, rad je dobro podeljen po celinama.
+\item Da li rad sadrži sve elemente propisane uslovom seminarskog rada (slike, tabele, broj strana...)?\\
+Ispoštovani su su uslovi - rad sadrži 2 slike, 1 tabelu, 11 strana i 10 referenci.  
+\item Da li su slike i tabele funkcionalne i adekvatne?\\
+Uglavnom, osim što slika 2 nije prevedena. \odgovor{Slika je sada prevedena.}
+\end{enumerate}
+
+\section{Ocenite sebe}
+% Napišite koliko ste upućeni u oblast koju recenzirate: 
+% a) ekspert u datoj oblasti
+% b) veoma upućeni u oblast
+% c) srednje upućeni
+% d) malo upućeni 
+% e) skoro neupućeni
+% f) potpuno neupućeni
+% Obrazložite svoju odluku
+Upućenost u oblast koju recenziram: srednja. Teme koje se obrađuju i termini koji se koriste su mi poznati i već više puta pominjani na do sada slušanim kursevima. \odgovor{Hvala na korisnim sugestijama! Dajemo maksimalnu ocenu pošto smatramo da su izmene u sažetku doprinele privlačnosti rada.}
+
+
+\chapter{Dodatne izmene}
+%Ovde navedite ukoliko ima izmena koje ste uradili a koje vam recenzenti nisu tražili. 
+\odgovor{Uočili smo još neke sitne jezičke propuste i greške u kucanju. Može se reći da smo donekle bili vredni, pa čitali i tuđe radove i recenzije, i usput gledali predloge. U skladu sa njima, gde je toga bilo, izbačena je upotreba prvog lica množine („biramo“ i slično), a umesto toga je pisano sve u trećem licu; za ovo smo primetili da je čest zahtev. Ujednačena je upotreba nabrajanja sa brojevima (enumerate) i bez njih (itemize) -- prvobitno su oba korišćena, a sad samo prvo.}
+
+\odgovor{U nekim slučajevima je prihvatanje iznetih sugestija zahtevalo da budu preformulisane pojedine rečenice, ali nije u pitanju ništa značajno i nevezano za predočene zahteve. Sve važno što je izmenjeno je, u svakom slučaju, navedeno u odgovorima na sugestije koje su uzrok izmena, uz dodatna objašnjenja.}
+
+\end{document}
