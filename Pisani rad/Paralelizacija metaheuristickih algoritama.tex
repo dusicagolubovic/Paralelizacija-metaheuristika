@@ -4,6 +4,7 @@
 \usepackage{color}
 \usepackage{url}
 \usepackage{graphicx}
+\graphicspath{{../Slike/}}
 
 \usepackage[english,serbian]{babel}
 
@@ -20,7 +21,7 @@
 \defaulthyphenchar=127
 
 \newcommand{\dvareda}[2][c]{\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
-\newcommand{\autori}[8]{\author{\begin{tabular}{c c} \dvareda{#1\\#2} & \dvareda{#3\\#4}\\\dvareda{#5\\#6} & \dvareda{#7\\#8} \end{tabular}}}
+\newcommand{\autori}[8]{\author{\begin{tabular}{c c} \dvareda{#1\\#2} & \dvareda{#3\\#4}\medskip\\\dvareda{#5\\#6} & \dvareda{#7\\#8}\bigskip \end{tabular}}}
 
 \newenvironment{algoritam}[1][htb]
 {\renewcommand{\algorithmcfname}{Algoritam}
@@ -43,6 +44,8 @@
 \title{Paralelizacija metaheuristika\\ \small{Seminarski rad u okviru kursa\\Metodologija stručnog i naučnog rada\\ Matematički fakultet}}
 
 \autori{Jovan Mirkov}{jvnmirkov@gmail.com}{Lazar Vasović}{lazar1997@mts.rs}{Dušica Golubović}{dusica.golubovic@yahoo.com}{Teodora Heldrih}{heldrich013@gmail.com}
+
+\date{20. april 2020.}
 
 \maketitle
 
@@ -302,7 +305,7 @@ Kako je i izloženo, paralelizacija je jedan od načina da se ubrza izvršavanje
 
 \addcontentsline{toc}{section}{Literatura}
 \appendix
-\bibliography{SM_14_ParalelizacijaMetaheuristickihAlgoritama_MirkovVasovicGolubovicHeldrih}
+\bibliography{Parale\string~1}
 \bibliographystyle{unsrt}
 
 \end{document}
