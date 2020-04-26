@@ -21,7 +21,7 @@
 \defaulthyphenchar=127
 
 \newcommand{\dvareda}[2][c]{\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
-\newcommand{\autori}[8]{\author{\begin{tabular}{c c} \dvareda{#1\\#2} & \dvareda{#3\\#4}\medskip\\\dvareda{#5\\#6} & \dvareda{#7\\#8}\bigskip \end{tabular}}}
+\newcommand{\autori}[8]{\author{\begin{tabular}{c c} \dvareda{#1\\\normalsize{#2}} & \dvareda{#3\\\normalsize{#4}}\medskip\\\dvareda{#5\\\normalsize{#6}} & \dvareda{#7\\\normalsize{#8}}\medskip \end{tabular}}}
 
 \newenvironment{algoritam}[1][htb]
 {\renewcommand{\algorithmcfname}{Algoritam}
@@ -59,8 +59,8 @@
 
 \section{Uvod}
 \label{sec:uvod}
-Veliki udeo realnih problema u računarstvu i drugim sferama života koji se rešavaju tehnikama optimizacije jeste NP-težak, ili na neki drugi način komplikovan za tačno rešavanje. Kao dobro rešenje pokazale su se metaheuristike. One se danas koriste u raznim oblastima: optimizaciji, bioinformatici, razvoju softvera, pa sve do telekomunikacija i ekonomije \cite{alba, alba2}. Više o optimizacionim problemima, metaheuristikama i zašto i kako je moguće ubrzati metaheuristike paralelizacijom, opisano je u poglavlju \ref{sec:optimizacioniProblemi}.
-U poglavlju \ref{sec:ParalelneMetaheuristike} opisana je podela metaheuristika na metaheuristike zasnovane na populaciji i metaheuristike zasnovane na unapređenju jednog rešenja. Prvo je opisan algoritam metaheuristike zasnovane na populaciji (poglavlje \ref{sec:OsnovnoPopulacija}) i njegova primena na paralelizaciju algoritama evolucije (poglavlje \ref{sec:ParalelizacijaEvolucije}), kao i konkretna primena na paralelizaciju genetskog algoritma u okviru istog podnaslova. Paralelizacija metaheuristike zasnovane na unapređenju jednog rešenja je opisana u poglavlju \ref{sec:ParalelizacijaJednog}.
+Veliki udeo realnih problema u računarstvu i drugim sferama života koji se rešavaju tehnikama optimizacije jeste NP-težak (eksponencijalan prostor pretrage), ili na neki drugi način komplikovan za tačno rešavanje -- npr. prostor pretrage je polinomijalne kardinalnosti, ali bi provera svake mogućnosti zahtevala neprihvatljivo dugo vreme izvršavanja. Kao dobro rešenje pokazale su se metaheuristike, a pogotovu njihove paralelne verzije. One se danas koriste u raznim oblastima: optimizaciji, bioinformatici, razvoju softvera, pa sve do neračunarskih disciplina poput telekomunikacija i ekonomije \cite{alba, alba2}. Više o optimizacionim problemima, metaheuristikama i tome zašto i kako ih je moguće ubrzati paralelizacijom, opisano je u poglavlju \ref{sec:optimizacioniProblemi}.
+U poglavlju \ref{sec:ParalelneMetaheuristike} opisana je podela metaheuristika na metaheuristike zasnovane na populaciji jedinki i metaheuristike zasnovane na unapređenju jednog rešenja. Prvo je opisan algoritam populacijske metaheuristike (poglavlje \ref{sec:OsnovnoPopulacija}) i njegova primena na paralelizaciju algoritama evolucije (poglavlje \ref{sec:ParalelizacijaEvolucije}), kao i konkretna primena na paralelizaciju genetskog algoritma u okviru istog podnaslova. Paralelizacija metaheuristike zasnovane na unapređenju jednog rešenja je opisana u poglavlju \ref{sec:ParalelizacijaJednog}.
 
 \section{Optimizacioni problemi i rešenja}
 \label{sec:optimizacioniProblemi}
@@ -69,7 +69,7 @@ U poglavlju \ref{sec:ParalelneMetaheuristike} opisana je podela metaheuristika n
 
 \subsection{Pristupi rešavanju}
 
-Za potrebe daljeg teksta, uvodi se sledeći motivacioni primer.
+Za potrebe daljeg teksta, uvodi se sledeći motivacioni primer:
 
 \begin{primer}
 Neka je zadat skup $G$ od $n$ gradova i funkcija udaljenosti $d(g_i, g_j)$ za svaki par gradova. Pronaći permutaciju $p: [1..n] \mapsto [1..n]$ takvu da je ukupna suma udaljenosti grana koje se prolaze obilaskom minimalna.
@@ -79,7 +79,7 @@ Naveden je \textbf{problem trgovačkog putnika} (eng. \textit{travelling salesma
 
 Ovakav raspored činilaca navodi na zaključak da je \textbf{egzaktno} rešavanje ovog i sličnih problema neisplativo. Već za dvadesetak gradova, metod grube sile poput totalne enumeracije morao bi da proveri preko dva triliona ($20! > 2\cdot10^{18}$) potencijalnih rešenja, pri čemu bi evaluacija svakog sabirala desetine grana. Iz tog razloga se, u slučaju da nije od prevelike važnosti dobijanje tačnog rešenja, pribegava upotrebi \textbf{heuristika}. One daju približno rešenje, ali se izvršavaju u polinomskom vremenu. Uprkos efikasnosti dobijanja, heuristička rešenja mogu biti problematična zbog lošeg kvaliteta, tako da se često primenjuju heuristike sa određenom garancijom kvaliteta. Primera radi, za slučaj TSP u euklidskoj ravni (važi i za druge mere sa svojstvom nejednakosti trougla) osmišljena je 2-aproksimativna heuristika \cite{ri} koja dokazano pronalazi rešenje koje je u najgorem slučaju dvaput lošije (duže) od optimalnog, i to u kvadratnom vremenu \cite{aa}.
 
-Problem mnogih heuristika jeste njihova specifičnost. Jednom osmišljena heuristika, poput 2-aproksimativne za TSP, često nije ponovo upotrebljiva, osim za neke veoma slične probleme. Stoga se za potrebe naglašavanja upotrebljivosti na širokom spektru optimizacionih problema uvodi pojam \textbf{metaheuristike}. Metaheurističke metode opisuju opšte strategije pretrage za rešavanje optimizacionih problema \cite{vi}. Formulisane su nezavisno od konkretnog problema, ali najčešće su prilično parametrizovane, pa ih je pre pokretanja moguće prilagoditi posebnom problemu koji se rešava. Poput drugih približnih metoda, metaheuristike razmatraju samo mali deo skupa mogućih rešenja, ali s druge strane uglavnom ne daju nikakve garancije o kvalitetu dobijenog rešenja. Ipak, rezultati su često dovoljno dobri i prihvatljivi, posebno u situacijama kada bi jedina alternativa bila egzaktna metoda koja bi se izvršavala neprihvatljivo dugo.
+Problem mnogih heuristika jeste njihova specifičnost. Jednom osmišljen algoritam, poput 2-aproksimativnog za TSP, često nije ponovo upotrebljiv, osim za neke veoma slične probleme. Stoga se za potrebe naglašavanja upotrebljivosti na širokom spektru optimizacionih problema uvodi pojam \textbf{metaheuristike}. Metaheurističke metode opisuju opšte strategije pretrage za rešavanje optimizacionih problema \cite{vi}. Formulisane su nezavisno od konkretnog problema, ali najčešće su prilično parametrizovane, pa ih je pre pokretanja moguće prilagoditi posebnom problemu koji se rešava. Poput drugih približnih metoda, metaheuristike razmatraju samo mali deo skupa mogućih rešenja, ali s druge strane uglavnom ne daju nikakve garancije o kvalitetu dobijenog rešenja. Ipak, rezultati su često dovoljno dobri i prihvatljivi, posebno u situacijama kada bi jedina alternativa bila egzaktna metoda koja bi se izvršavala neprihvatljivo dugo.
 
 \subsection{Može li bolje?}
 
@@ -90,13 +90,13 @@ Uprkos tome što se približnim rešavanjem znatno poboljšava vremenska složen
 \item \textbf{paralelizovati podatke} -- npr. svako rešenje se obrađuje i ažurira na posebnoj niti (\textit{paralelizacija petlji}, konkurentnost na nivou naredbe).
 \end{itemize}
 
-Iz prethodne podele nazire se i drugi razlog paralelizacije, pored dobijanja na performansama. U pitanju je podela posla, odnosno razdvajanje odgovornosti, odnosno podrška logičkoj strukturi programa \cite{pp}, što je možda čak i važniji motiv iz ugla razvoja softvera \cite{rs}. Treći razlog jeste rad na fizički nezavisnim uređajima -- farmama (klasterima) računara, ili prosto u različitim adresnim prostorima. Na ovaj način, moguće je ne samo ubrzati postojeće metaheurističke algoritme i bolje ih modelovati, već i konstruisati nove koji maksimalno iskorišćavaju npr. distribuiranu arhitekturu sistema na kojem se izvršavaju. U tome pomažu radni okviri kao što su MALLBA, ParadisEO, pALS, ECJ, OPT4J, DGPF i PMF, a ovako specijalizovani algoritmi često mogu biti robusniji i proizvesti bolja rešenja od prosto paralelizovanih, ali suštinski neizmenjenih sekvencijalnih \cite{alba, alba2, talbi}.
+Iz prethodne podele nazire se i drugi razlog paralelizacije, pored dobijanja na performansama. U pitanju je podela posla, odnosno razdvajanje odgovornosti, odnosno podrška logičkoj strukturi programa \cite{pp}, što je možda čak i važniji motiv iz ugla razvoja softvera \cite{rs}. Treći razlog jeste rad na fizički nezavisnim uređajima -- farmama (klasterima) računara, ili prosto u različitim adresnim prostorima. Na ovaj način, moguće je ne samo ubrzati postojeće metaheurističke algoritme i bolje ih modelovati, već i konstruisati nove koji maksimalno iskorišćavaju distribuiranu arhitekturu sistema na kojem se izvršavaju. U tome pomažu radni okviri kao što su MALLBA, ParadisEO, pALS, ECJ, OPT4J, DGPF i PMF, a ovako specijalizovani algoritmi često mogu biti robusniji i proizvesti bolja rešenja od prosto paralelizovanih, ali suštinski neizmenjenih sekvencijalnih \cite{alba, alba2, talbi}.
 
 Dve važne osobine razlikuju paralelne metaheuristike od sekvencijalnih -- \textbf{dizajn} odnosno \textit{„arhitektura“ algoritma} i \textbf{implementacija} odnosno \textit{arhitektura sistema}. Prema prvoj karakteristici, izdvajaju se tri glavna paralelna modela koji se međusobno razlikuju po granularnosti, tj. nivou na kojem se sprovodi paralelizacija \cite{talbi}. U tabeli \ref{tab:dizajn} date su sheme modela i neke njihove osobine.
 
 \begin{table}[h!]
 \begin{center}
-\caption{Paralelni modeli metaheuristika}
+\caption{Paralelni modeli metaheuristika}\medskip
 \begin{tabular}{c c c c} \hline
 Granularnost & \dvareda{Zavisnost\\od problema} & Ponašanje & Cilj\\ \hline
 Nivo algoritma & Nezavisan & Izmenjeno & Efektivnost\\
@@ -203,7 +203,7 @@ U nastavku teksta će detaljnije biti opisani paralelni modeli algoritama evoluc
     Može se smatrati da je ovaj model specijalni slučaj distribuiranog modela gde ne postoje migracije. Ovako, rezultat distribuiranog izračunavanja je najbolje moguće rešenje iz nezavisnih izvršavanja \cite{alba}. 
     \item \textbf{Gospodar-sluga model}: \newline \indent Kod ovog modela master procesor izvršava glavnu petlju genetskog algoritma i šalje potrebne parametre slugama, koji koristeći te parametre izračunavaju funkciju evaluacije. Vrednosti ovih funkcija se potom vraćaju master procesoru \cite{alba}.
     \indent Pokazalo se da je ovaj model veoma efikasan kada je izračunavanje fitnesa veoma skupa operacija (u poređenju sa cenom komunikacije između master i sluga procesora).
-    \item \textbf{Distribuirani model}: \newline \indent Nad svakom potpopulacijom se nezavisno izvršava genetski algoritam. Iako povremeno dolazi do migracija jedinki iz jedne subpopulacije u drugu, one su veći deo vremena izvršavanja međusobno izolovane. Distribuirani model zahteva postojanje \textit{planova migracija} koji uključuju postojanje sledećih parametara: \cite{alba}
+    \item \textbf{Distribuirani model}: \newline \indent Nad svakom potpopulacijom se nezavisno izvršava genetski algoritam. Iako povremeno dolazi do migracija jedinki iz jedne subpopulacije u drugu, one su veći deo vremena izvršavanja međusobno izolovane. Distribuirani model zahteva postojanje \textit{planova migracija} koji uključuju postojanje sledećih parametara \cite{alba}:
     \begin{itemize}
         \item \textit{razmak između migracija} -- broj koraka u evoluciji u svakoj potpopulaciji između dve razmene, Migracije mogu da se događaju ili periodično ili sa određenom, unapred zadatom verovatnoćom $P_M$, za odluku u svakom koraku da li dolazi do migracije, ili ne,
         \item \textit{stopa migracije} -- koji broj jedinki će učestvovati u migraciji; može se izraziti u procentima celokupne populacije, ili kao apsolutna vrednost,
@@ -286,7 +286,7 @@ Kombinovanje datih algoritama i modela paralelizma sa evolutivnim algoritmima ko
 
 Pokazalo se da je paralelizacija ovih metaheuristika veoma korisna kada je u pitanju rešavanje problema u oblasti telekomunikacija. Pouzdanost u telekomunikacijama odnosi se na mogućnost mreže da nesmetano funkcioniše kada dođe do kvara na nekom čvoru ili vezi. Pristup za povećavanje pouzdanosti u telekomunikacijskoj mreži sastoji se u ograničavanju broja grana na putanji između dva čvora -- postoji unapred uspostavljen skup čvorova i putevi između njih imaju najviše k grana.
 
-Autori Riberio i Rozeti\cite{ribe} razvili su paralelni GRASP algoritam za ovaj problem kada je k = 2.
+Autori Riberio i Rozeti \cite{ribe} razvili su paralelni GRASP algoritam za ovaj problem kada je k = 2.
 Faza konstrukcije GRASP-a koristi iterativni algoritam za određivanje najkraćeg puta u grafu, i to nasumičnim odabirom početnih i krajnjih čvorova sve dok svaka kombinacija parova nije razmotrena. Faza lokalne pretrage pokušava da poboljša rešenja eliminišući neke puteve i preračunavajući puteve koristeći modifikovane težine grana. Paralelni pristup koristi strategiju višestruke nezavisne pretrage dok se iteracije distribuirano izvršavaju na procesorima. Paralelizam omogućava linearno ubrzanje i dovodi do dostizanja većeg kvaliteta rešenja \cite{alba}.
 
 \begin{figure}[h!]
