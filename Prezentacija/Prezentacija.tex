@@ -1,58 +1,179 @@
 % !TEX encoding = UTF-8 Unicode
 \documentclass{beamer}
-\usetheme{Copenhagen}
-\usecolortheme{dolphin}
-\definecolor{lightblue}{RGB}{233, 233, 243}
-\setbeamercolor{author in head/foot}{fg=black, bg=lightblue}
-\setbeamercolor{title in head/foot}{bg=white}
-\setbeamertemplate{headline}{}
-\setbeamertemplate{navigation symbols}{}
+\usetheme{CambridgeUS}
+\setbeamercolor{bibliography entry author}{fg=black}
+\setbeamercolor{item}{fg=darkred}
+\setbeamercolor{caption name}{fg=darkred}
 
-\usepackage{url}
 \usepackage{graphicx}
+\graphicspath{{../Slike/}}
 \usepackage[serbian]{babel}
 \usepackage{type1ec}
 \usepackage{cmap}
 
+\newcommand{\autori}[4]{{\begin{tabular}{r l} #1 & #2\\ #3 & #4 \end{tabular}}}
+\newcommand{\dvareda}[2][c]{\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
 \title{Paralelizacija metaheuristika}
-\author{Jvn, Lzr, Dšc, Tdr}
-\institute{Matematički fakultet, Univerzitet u Beogradu\\\url{https://github.com/jvn-mirkov/msnr-2020}}
-\date{28. april 2020.}
+\author[Mirkov, Vasović, Golubović, Heldrih]{\autori{Jovan Mirkov}{Lazar Vasović}{Dušica Golubović}{Teodora Heldrih}}
+\institute[]{Matematički fakultet, Univerzitet u Beogradu\\\href{https://github.com/jvn-mirkov/Paralelizacija-metaheuristika}{github.com/jvn-mirkov/Paralelizacija-metaheuristika}}
+\date[Matematički fakultet]{28. april 2020.}
 
 \begin{document}
 
 \frame{\titlepage}
 
 \begin{frame}{Sadržaj}
-\tableofcontents
+\tableofcontents[subsectionstyle=hide]
 \end{frame}
 
-\section{Uvod}
-\begin{frame}{Uvod}
+\section{Optimizacija i paralelizacija}
+\subsection{Optimizacioni problemi}
+\begin{frame}{Optimizacioni problemi}
 \begin{itemize}
-\item Uvodim u priču
+\item Optimizacija -- odabir najboljeg rešenja
 
-\item Uvodim u priču
+\item Problemi -- ciljna funkcija i skup ograničenja
 
-\item Uvodim u priču
+\item Egzaktno rešavanje -- iscrpna pretraga
 
-\item Uvodim u priču
+\item Heuristike -- približna usmerena pretraga
+
+\item Metaheuristike -- opšte strategije pretrage
 \end{itemize}
 \end{frame}
 
-\section{Zaključak}
+\subsection{Može li bolje?}
+\begin{frame}{Može li bolje?}
+\begin{itemize}
+\item Sekvencijalne metaheuristike nekad nezadovoljavajuće
+
+\item Paralelizacija -- mogućnosti paralelnog izvršavanja
+
+\item Performanse -- brzina izvršavanja, robusnija rešenja
+
+\item Podela posla -- podaci (naredbe), zadaci (jedinice)
+
+\item Fizički nezavisni uređaji -- distribuirani algoritmi
+\end{itemize}
+\end{frame}
+
+\subsection{Paralelne metaheuristike}
+\begin{frame}{Paralelne metaheuristike}
+\begin{itemize}
+\item Dizajn -- arhitektura algoritma:
+
+\smallskip\small
+\begin{tabular}{| c c c c |} \hline
+Granularnost & \dvareda{Zavisnost\\od problema} & Ponašanje & Cilj\\ \hline
+Nivo algoritma & Nezavisan & Izmenjeno & Efektivnost\\
+Nivo iteracije & Nezavisan & Neizmenjeno & Efikasnost\\
+Nivo rešenja & Zavisan & Neizmenjeno & Efikasnost\\ \hline
+\end{tabular}
+
+\medskip\normalsize
+\item Implementacija -- arhitektura sistema:
+
+\smallskip\small
+\begin{tabular}{| c c |} \hline
+Arhitektura & Predstavnici\\ \hline
+Programabilna kola & FPGA kola\\
+Višeprocesorski sistemi & Višejezgarni sistemi, GPGPU\\
+Distribuirane platforme & Klasteri, P2P, grid, oblak\\ \hline
+\end{tabular}
+\end{itemize}
+\end{frame}
+
+\section{Unapređivanje populacije jedinki}
+\subsection{Strategije i modeli}
+\begin{frame}{Unapređivanje populacije jedinki}
+\begin{itemize}
+\item Sekvencijalni algoritam evolucije zahteva velike računarske resurse
+\item Paralelizacija kao posledica nezavinosti jedinki u populaciji
+\item Strategija paralelizacije:
+\begin{itemize}
+    \item paralelizacija populacije
+    \item paralelizacija operacija
+\end{itemize}
+\item Primena -- problem Štajnerovog drveta u telekomunikacijama
+\item Gospodar-sluga model
+\item Struktuirana populacija
+\end{itemize}
+\end{frame}
+
+\subsection{Struktuirana populacija}
+\begin{frame}{Struktuirana populacija}
+\begin{figure}
+    \includegraphics[scale=0.6]{struktuiraniModeli.png}
+    \caption{Grafički prikaz distribuiranog, ćelijskog i hibridnog modela}
+\end{figure}
+\end{frame}
+
+\subsection{Planovi migracija}
+\begin{frame}{Planovi migracija}
+\begin{itemize}
+\item Distribuirani model -- planovi migracija
+\begin{itemize}
+    \item razmak između migracija
+    \item stopa migracije
+    \item odabir i zamena jedinki
+    \item topologija (definisanje susedstva)
+\end{itemize}
+\item Model sa nezavisnim pokretanjima
+
+\end{itemize}
+
+\end{frame}
+
+\section{Unapređivanje jednog rešenja}
+\subsection{Ideja i primena}
+\begin{frame}{Unapređivanje jednog rešenja}
+\begin{itemize}
+\item Osnovna ideja -- pretraga i zamena rešenja 
+
+\item Zamena zavisi od konkretne metode
+
+\item Prve ideje o paralelizaciji ovih algoritama oko 1980. godine
+
+\item Primena -- GRASP algoritam za problem pouzdanosti u telekomunikacijama
+
+\end{itemize}
+\end{frame}
+
+\subsection{Modeli paralelizacije}
+\begin{frame}{Modeli paralelizacije}
+\begin{figure}
+    \includegraphics[scale=0.6]{albaPodela.PNG}
+    \caption{\dvareda{Modeli paralelizma prema Enrikeu Albi: (a) kretanje,\\(b) višestruko pokretanje, (c) ubrzano kretanje}}
+\end{figure}
+\end{frame}
+
+\section{Zaključak i literatura}
+\subsection{Prednosti i izazovi}
 \begin{frame}{Zaključak}
 \begin{itemize}
-\item Zaključujem nešto
+\item Prednosti paralelizacije
+\begin{itemize}
 
-\item Zaključujem nešto
+\item ubrzanje izvršavanja metaheuristika
 
-\item Zaključujem nešto
+\item bolji kvalitet rešenja
 
-\item Zaključujem nešto
+\item problemi sa većim dimenzijama
+
+\item ograničenja
+\end{itemize}
+
+\item Izazovi paralelizacije
+\begin{itemize}
+\item najbolje rešenje
+
+\item najbrže rešenje
+\end{itemize}
 \end{itemize}
 \end{frame}
 
+\subsection{Zahvalnica}
 \begin{frame}
 \centering \LARGE
 \textbf{HVALA NA PAŽNJI!}
@@ -60,11 +181,11 @@
 \textbf{Pitanja?}
 \end{frame}
 
-\section{Literatura}
+\subsection{Literatura}
 \begin{frame}{Literatura}
 \nocite{*}
 \bibliographystyle{amsalpha}
-%\bibliography{Prezen\string~1}
+\bibliography{Prezentacija}
 \end{frame}
 
 \end{document}
