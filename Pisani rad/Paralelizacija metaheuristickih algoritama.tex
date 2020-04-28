@@ -163,7 +163,7 @@ Ovaj proces se ponavlja sve dok nije ispunjen kriterijum zaustavljanja. U nastav
 \caption{EA pseudokod}
 \end{algoritam}
 
-Algoritmi evolucije (eng. \textit{Evolutionary Algorithms}), u daljem tekstu EA, jedinke u populaciji biraju koristeći operatore varijacije (mutacija, rekombinacija) koji se primenjuju \textit{direktno} na jedinke. U gorenavedenom pseudokodu dat je opšti algoritam svakog EA. U zavisnosti od reprezentacije jedinke i koraka evolucije, postoji nekoliko potklasa EA, među kojima su evolutivno programiranje (EP), genetski algoritmi (GA) i evolutivne strategije (ES) \cite{alba}.
+Algoritmi evolucije (eng. \textit{evolutionary algorithms}), u daljem tekstu EA, jedinke u populaciji biraju koristeći operatore varijacije (mutacija, rekombinacija) koji se primenjuju \textit{direktno} na jedinke. U gorenavedenom pseudokodu dat je opšti algoritam svakog EA. U zavisnosti od reprezentacije jedinke i koraka evolucije, postoji nekoliko potklasa EA, među kojima su evolutivno programiranje (EP), genetski algoritmi (GA) i evolutivne strategije (ES) \cite{alba}.
 
 Za netrivijalne probleme, izvršavanje reprodukcije jednostavnog EA nad velikom populacijom zahteva ogromne računarske resurse. Samo računanje funkcije prilagođavanja za svaku jedinku u populaciji je najskuplja operacija. Ovi problemi se rešavaju primenom paralelnog modela \cite{alba}.
 
@@ -212,7 +212,7 @@ U nastavku teksta će detaljnije biti opisani paralelni modeli algoritama evoluc
     \end{itemize}{}
 \end{enumerate}{}
 
-Svakodnevni razvoj mrežnih infrastruktura, softvera, internet servisa, kao i neprestano širenje mreža dovelo je do potrebe za novim algoritmima koji će zameniti tradicionalne koji su neefikasni kad su u pitanju problemi u industriji. Ta potreba za bržim rešenjima zadovoljena je upotrebnom metaheuristika u oblasti telekomunikacija, kao i paralelizacije, kojom bi te metaheuristike dodatno bile ubrzane. Jedan od glavnih problema u telekomunikacijama je problem Štajnerovog drveta (eng. \textit{Steiner Tree Problem}, STP), koji podrazumeva pronalaženje podstabla minimalne težine datog grafa uspostavljenih terminalnih čvorova. U radu \cite{fatta} predložen je gospodar-sluga paralelni GA kao konkretno rešenje ovog problema. Nakon toga je u radu \cite{martins} ovaj predlog proširen predstavljanjem hibridnog paralelnog modela koji kombinuje distribuirani GA i lokalnu pretragu koristeći specifične STP heuristike. Analiza efikasnosti pokazuje da distribuirani model postiže bolje vrednosti ubrzanja od gospodar-sluga modela jer koristi nekoliko tačaka sinhronizacije i na taj način može da se izvršava u okruženju računarskih mreža širokog pojasa \cite{alba}.
+Svakodnevni razvoj mrežnih infrastruktura, softvera, internet servisa, kao i neprestano širenje mreža dovelo je do potrebe za novim algoritmima koji će zameniti tradicionalne koji su neefikasni kad su u pitanju problemi u industriji. Ta potreba za bržim rešenjima zadovoljena je upotrebnom metaheuristika u oblasti telekomunikacija, kao i paralelizacije, kojom bi te metaheuristike dodatno bile ubrzane. Jedan od glavnih problema u telekomunikacijama je problem Štajnerovog drveta (eng. \textit{Steiner tree problem}, STP), koji podrazumeva pronalaženje podstabla minimalne težine datog grafa uspostavljenih terminalnih čvorova. U radu \cite{fatta} predložen je gospodar-sluga paralelni GA kao konkretno rešenje ovog problema. Nakon toga je u radu \cite{martins} ovaj predlog proširen predstavljanjem hibridnog paralelnog modela koji kombinuje distribuirani GA i lokalnu pretragu koristeći specifične STP heuristike. Analiza efikasnosti pokazuje da distribuirani model postiže bolje vrednosti ubrzanja od gospodar-sluga modela jer koristi nekoliko tačaka sinhronizacije i na taj način može da se izvršava u okruženju računarskih mreža širokog pojasa \cite{alba}.
 
 \subsection{Pristupi zasnovani na unapređenju rešenja}
 \label{sec:ParalelizacijaJednog}
@@ -224,7 +224,7 @@ Ovakve metode se nazivaju pretraživačko-orijentisane metode (eng. \textit{expl
 Metaheuristike za rešavanje optimizacionih problema se mogu 
 posmatrati kao kretanje kroz prostor rešenja, prateći puteve nekog metoda pretrage.
 
-Većina metaheuristika su sekvencijalne. Same po sebi imaju cilj da smanje vremensku složenost, ali uvek je moguće pribeći paralelizmu za još brža rešenja, mada paralelizam više doprinosi kvalitetu rešenja u ovom slučaju \cite{alba2}. U najpoznatije metode koje se zasnivaju na unapređenju jednog resenja, uz neke manje poznate poput pohlepne slučajne adaptivne pretrage (eng. \textit{Greedy Randomized Adaptive Search}, GRASP), spadaju:
+Većina metaheuristika su sekvencijalne. Same po sebi imaju cilj da smanje vremensku složenost, ali uvek je moguće pribeći paralelizmu za još brža rešenja, mada paralelizam više doprinosi kvalitetu rešenja u ovom slučaju \cite{alba2}. U najpoznatije metode koje se zasnivaju na unapređenju jednog resenja, uz neke manje poznate poput pohlepne slučajne adaptivne pretrage (eng. \textit{greedy randomized adaptive search}, GRASP), spadaju:
 
 \begin{itemize} 
 \item simulirano kaljenje,
